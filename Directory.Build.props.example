@@ -1,0 +1,6 @@
+<Project>
+  <PropertyGroup>
+    <GamePath>C:\Path\To\Suzerain</GamePath>
+    <DeployMod>false</DeployMod>
+  </PropertyGroup>
+</Project>
