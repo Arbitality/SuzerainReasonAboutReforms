@@ -30,12 +30,15 @@ internal static class ConvinceIsabelConversationPatch
             {
                 new ConversationNodeHook(
                     selector: new ConversationNodeArticyIDSelector(
-                        _failureJournalArticyId),
+                        _failureJournalArticyId,
+                        conversationName: null),
                     mode: ConversationNodeHook.HookMode.Override),
             },
             nextNodes: new[]
             {
-                new ConversationNodeArticyIDSelector(_successJournalArticyId),
+                new ConversationNodeArticyIDSelector(
+                    _successJournalArticyId,
+                    conversationName: null),
             },
             speakerSelector: new CharacterNameSelector("Narrator")));
 

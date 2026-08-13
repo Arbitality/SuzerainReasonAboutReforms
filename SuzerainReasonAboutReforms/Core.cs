@@ -21,7 +21,7 @@ internal sealed class Core : MelonMod
     {
         LoggerInstance.Msg(
             $"SuzerainReasonAboutReforms version: {ModInfo.Version}, " +
-            $"SMK version: {SmkInfo.VersionStr}, " +
+            $"target SMK version: {SmkInfo.VersionStr}, " +
             $"minimum versions: Suzerain {ModInfo.MinimumSuzerainVersion}, " +
             $"SMK {ModInfo.MinimumSmkVersion}, " +
             $"MelonLoader {ModInfo.MinimumMelonLoaderVersion}.");

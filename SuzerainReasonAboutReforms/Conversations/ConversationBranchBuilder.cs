@@ -56,7 +56,9 @@ internal sealed class ConversationBranchBuilder
             string choicePrefix = $"{branchPrefix}.Choice{index + 1}";
             string playerNodeName = $"{choicePrefix}.Player";
             ReserveNodeName(playerNodeName);
-            playerNodes[index] = new ConversationNodeModdedNameSelector(playerNodeName);
+            playerNodes[index] = new ConversationNodeModdedNameSelector(
+                playerNodeName,
+                conversationName: null);
 
             if (choices[index].ResponseText is not null)
             {
@@ -70,7 +72,9 @@ internal sealed class ConversationBranchBuilder
             hooks: new[]
             {
                 new ConversationNodeHook(
-                    selector: new ConversationNodeArticyIDSelector(hookArticyId),
+                    selector: new ConversationNodeArticyIDSelector(
+                        hookArticyId,
+                        conversationName: null),
                     mode: ConversationNodeHook.HookMode.Override),
             },
             nextNodes: playerNodes,
@@ -88,8 +92,12 @@ internal sealed class ConversationBranchBuilder
         string playerNodeName = $"{choicePrefix}.Player";
         string responseNodeName = $"{choicePrefix}.Response";
         ConversationNodeSelector playerNextNode = choice.ResponseText is null
-            ? new ConversationNodeArticyIDSelector(choice.NextArticyId)
-            : new ConversationNodeModdedNameSelector(responseNodeName);
+            ? new ConversationNodeArticyIDSelector(
+                choice.NextArticyId,
+                conversationName: null)
+            : new ConversationNodeModdedNameSelector(
+                responseNodeName,
+                conversationName: null);
 
         _ = _injection.AddNode(new ConversationNode(
             name: playerNodeName,
@@ -110,7 +118,9 @@ internal sealed class ConversationBranchBuilder
             text: Quote(choice.ResponseText),
             nextNodes: new[]
             {
-                new ConversationNodeArticyIDSelector(choice.NextArticyId),
+                new ConversationNodeArticyIDSelector(
+                    choice.NextArticyId,
+                    conversationName: null),
             },
             speakerSelector: CreateSpeakerSelector()));
     }

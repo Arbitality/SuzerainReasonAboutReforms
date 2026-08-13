@@ -4,9 +4,11 @@
 recovering selected failed negotiations with Gloria Tory, Albin Clavin, and
 Isabel Edmonds during the constitutional reform campaign.
 
-Version `1.0.0` retains the eight in-game-validated Gloria recoveries, the three
+Version `1.0.1` retains the eight in-game-validated Gloria recoveries, the three
 Albin recoveries, and adds an Isabel outcome redirect with one short narrator
-transition.
+transition. It targets the selector constructor signatures introduced by SMK
+`2.4`.
+
 ## Added conversation behavior
 
 When enabled, the mod registers one SMK conversations for:
@@ -50,7 +52,7 @@ sequence.
 - Windows x64.
 - Steam Suzerain `3.1.0.1.175` or newer.
 - MelonLoader `0.7.3` or newer, using its .NET 6 runtime.
-- Suzerain Modding Kit (SMK) `1.3` or newer.
+- Suzerain Modding Kit (SMK) `2.4` or newer.
 
 SMK is a beta dependency and may make breaking changes.
 
@@ -63,7 +65,7 @@ For installation:
 3. Close Suzerain.
 4. Place `SuzerainReasonAboutReforms.dll` in `Suzerain/Mods`.
 
-On startup, the MelonLoader log should identify version `1.0.0`, the detected
+On startup, the MelonLoader log should identify version `1.0.1`, the targeted
 SMK version, each configured feature state, and whether each enabled injection
 registered successfully.
 
